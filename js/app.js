@@ -16,6 +16,12 @@ Enemy.prototype.update = function(dt) {
 
     // Ensures the game runs at the same speed for
     // all computers.
+
+    // resets enemy bug when it reaches canvas wall
+    if (this.x > 505) {
+        this.reset();
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -23,9 +29,53 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Enemy.prototype.reset = function() {
+    this.x =-200;
+};
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+
+// Set player x/y coordinates
+var startX = 200;
+var startY = 400;
+
+var Player = function() {
+    this.x = startX;
+    this.y = startY;
+    this.sprite = 'images/char-boy.png';
+};
+
+
+Player.prototype.update = function() {
+
+  // x axis boundaries
+  if (this.x < 0) {
+    this.x = 0;
+  } else if (this.x > 400) {
+    this.x = 400;
+  }
+  // y axis boundaries
+  else if (this.y > 400) {
+    this.y = 400;
+  }
+  // reset if player reaches water
+  else if (this.y < 0) {
+    this.reset();
+  }
+};
+
+// reset function sets the player back to the start coordinates
+Player.prototype.reset = function() {
+  this.x = startX;
+  this.y = startY;
+};
+
+// Draw the player on the screen, required method for game
+Player.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 
 // Now instantiate your objects.
