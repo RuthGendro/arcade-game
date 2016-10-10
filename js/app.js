@@ -80,7 +80,24 @@ Player.prototype.render = function() {
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+
+var allEnemies = [];
+
+
+// push enemies into allEnemies array, 3 enemies total
+// sets Y coordinate for each enemy to 65, 145, and 225 by using incrementer
+// sets X coordinate randomly
+// sets speed to a base of 60 and then randomizes each enemy
+for (var i = 0; i < 3; i++) {
+  var enemyY = 65 + 80 * i;
+  var enemyX = Math.floor(Math.random() * 30);
+  var enemySpeed = 60 + Math.floor(Math.random() * 150);
+  allEnemies.push(new Enemy(enemyX, enemyY, enemySpeed));
+
+
 // Place the player object in a variable called player
+
+    var player = new Player();
 
 
 
