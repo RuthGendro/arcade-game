@@ -113,3 +113,27 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+    // switch statement takes the key event listener and adjusts x or y accordingly
+Player.prototype.handleInput = function(key) {
+  switch (key) {
+    case 'up':
+      this.y -= 90;
+      break;
+
+    case 'down':
+      this.y += 90;
+      break;
+
+    case 'left':
+      this.x -= 100;
+      break;
+
+    case 'right':
+      this.x += 100;
+      break;
+
+    default:
+      break;
+  }
+};
