@@ -40,7 +40,7 @@ var startY = 400;
 var Player = function() {
   this.x = startX;
   this.y = startY;
-  this.sprite = 'images/char-boy.png';
+  this.sprite = 'images/char-pink-girl.png';
 };
 
 
@@ -84,11 +84,11 @@ var allEnemies = [];
 // push enemies into allEnemies array, 3 enemies total
 // sets Y coordinate for each enemy to 65, 145, and 225 by using incrementer
 // sets X coordinate randomly
-// sets speed to a base of 60 and then randomizes each enemy
+// sets speed to a base of 80 and then randomizes each enemy
 for (var i = 0; i < 3; i++) {
   var enemyY = 65 + 80 * i;
   var enemyX = Math.floor(Math.random() * 30);
-  var enemySpeed = 50 + Math.floor(Math.random() * 150);
+  var enemySpeed = 80 + Math.floor(Math.random() * 200);
   allEnemies.push(new Enemy(enemyX, enemyY, enemySpeed));
 }
 
